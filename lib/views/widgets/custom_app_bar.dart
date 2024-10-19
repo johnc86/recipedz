@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/views/utils/AppColor.dart';
+import 'package:flutter/services.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
   final bool showProfilePhoto;
   final ImageProvider profilePhoto;
-  final Function profilePhotoOnPressed;
+  final VoidCallback profilePhotoOnPressed;
 
-  CustomAppBar({@required this.title, @required this.showProfilePhoto, this.profilePhoto, this.profilePhotoOnPressed});
+  CustomAppBar({required this.title, required this.showProfilePhoto, required this.profilePhoto, required this.profilePhotoOnPressed});
 
   @override
   Size get preferredSize => Size.fromHeight(60);
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      brightness: Brightness.dark,
+      systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: AppColor.primary,
       title: title,
       elevation: 0,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/views/screens/recipe_detail_page.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/views/screens/recipe_detail_page.dart';
 
 class RecommendationRecipeCard extends StatelessWidget {
   final Recipe data;
-  RecommendationRecipeCard({@required this.data});
+  RecommendationRecipeCard({required this.data});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,7 +25,7 @@ class RecommendationRecipeCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.blueGrey,
                 image: DecorationImage(
-                  image: AssetImage(data.photo),
+                  image: AssetImage(data.photo ?? 'assets/images/default_image.png'),
                   fit: BoxFit.cover,
                 ),
               ),

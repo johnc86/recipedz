@@ -1,94 +1,41 @@
-import 'package:hungry/models/core/recipe.dart';
+import 'package:recipedz/models/core/recipe.dart';
 
 class RecipeHelper {
-  static List<Recipe> featuredRecipe = featuredRecipeRawData
-      .map((data) => Recipe(
-            title: data['title'],
-            photo: data['photo'],
-            calories: data['calories'],
-            time: data['time'],
-            description: data['description'],
-            reviews: Review.toList(data['reviews']),
-            tutorial: TutorialStep.toList(data['tutorial']),
-            ingridients: Ingridient.toList(data['ingridients']),
-          ))
-      .toList();
+  static List<Recipe> featuredRecipe = _mapRawDataToRecipes(featuredRecipeRawData);
+  static List<Recipe> recommendationRecipe = _mapRawDataToRecipes(recommendationRecipeRawData);
+  static List<Recipe> newlyPostedRecipe = _mapRawDataToRecipes(newlyPostedRecipeRawData);
+  static List<Recipe> sweetFoodRecommendationRecipe = _mapRawDataToRecipes(sweetFoodRecommendationRecipeRawData);
+  static Recipe popularRecipe = _mapRawDataToRecipe(popularRecipeRawData);
+  static List<Recipe> searchResultRecipe = _mapRawDataToRecipes(recipeSearchResultRawData);
+  static List<Recipe> bookmarkedRecipe = _mapRawDataToRecipes(bookmarkedRecipeRawData);
 
-  static List<Recipe> recommendationRecipe = recommendationRecipeRawData
-      .map((data) => Recipe(
-            title: data['title'],
-            photo: data['photo'],
-            calories: data['calories'],
-            time: data['time'],
-            description: data['description'],
-            reviews: Review.toList(data['reviews']),
-            tutorial: TutorialStep.toList(data['tutorial']),
-            ingridients: Ingridient.toList(data['ingridients']),
-          ))
-      .toList();
+  static List<Recipe> _mapRawDataToRecipes(List<Map<String, dynamic>> rawData) {
+    return rawData
+        .map((data) => Recipe(
+              title: data['title'] as String,
+              photo: data['photo'] as String,
+              calories: data['calories'] as String,
+              time: data['time'] as String,
+              description: data['description'] as String,
+              reviews: Review.toList(data['reviews'] as List<Map<String, Object>>),
+              tutorial: TutorialStep.toList(data['tutorial'] as List<Map<String, Object>>),
+              ingridients: Ingridient.toList(data['ingridients'] as List<Map<String, Object>>),
+            ))
+        .toList();
+  }
 
-  static List<Recipe> newlyPostedRecipe = newlyPostedRecipeRawData
-      .map((data) => Recipe(
-            title: data['title'],
-            photo: data['photo'],
-            calories: data['calories'],
-            time: data['time'],
-            description: data['description'],
-            reviews: Review.toList(data['reviews']),
-            tutorial: TutorialStep.toList(data['tutorial']),
-            ingridients: Ingridient.toList(data['ingridients']),
-          ))
-      .toList();
-
-  static List<Recipe> sweetFoodRecommendationRecipe = sweetFoodRecommendationRecipeRawData
-      .map((data) => Recipe(
-            title: data['title'],
-            photo: data['photo'],
-            calories: data['calories'],
-            time: data['time'],
-            description: data['description'],
-            reviews: Review.toList(data['reviews']),
-            tutorial: TutorialStep.toList(data['tutorial']),
-            ingridients: Ingridient.toList(data['ingridients']),
-          ))
-      .toList();
-
-  static Recipe popularRecipe = Recipe(
-    title: popularRecipeRawData['title'],
-    photo: popularRecipeRawData['photo'],
-    calories: popularRecipeRawData['calories'],
-    time: popularRecipeRawData['time'],
-    description: popularRecipeRawData['description'],
-    reviews: Review.toList(popularRecipeRawData['reviews']),
-    tutorial: TutorialStep.toList(popularRecipeRawData['tutorial']),
-    ingridients: Ingridient.toList(popularRecipeRawData['ingridients']),
-  );
-
-  static List<Recipe> sarchResultRecipe = recipeSearchResultRawData
-      .map((data) => Recipe(
-            title: data['title'],
-            photo: data['photo'],
-            calories: data['calories'],
-            time: data['time'],
-            description: data['description'],
-            reviews: Review.toList(data['reviews']),
-            tutorial: TutorialStep.toList(data['tutorial']),
-            ingridients: Ingridient.toList(data['ingridients']),
-          ))
-      .toList();
-
-  static List<Recipe> bookmarkedRecipe = bookmarkedRecipeRawData
-      .map((data) => Recipe(
-            title: data['title'],
-            photo: data['photo'],
-            calories: data['calories'],
-            time: data['time'],
-            description: data['description'],
-            reviews: Review.toList(data['reviews']),
-            tutorial: TutorialStep.toList(data['tutorial']),
-            ingridients: Ingridient.toList(data['ingridients']),
-          ))
-      .toList();
+  static Recipe _mapRawDataToRecipe(Map<String, dynamic> data) {
+    return Recipe(
+      title: data['title'] as String,
+      photo: data['photo'] as String,
+      calories: data['calories'] as String,
+      time: data['time'] as String,
+      description: data['description'] as String,
+      reviews: Review.toList(data['reviews'] as List<Map<String, Object>>),
+      tutorial: TutorialStep.toList(data['tutorial'] as List<Map<String, Object>>),
+      ingridients: Ingridient.toList(data['ingridients'] as List<Map<String, Object>>),
+    );
+  }
 }
 
 var popularRecipeRawData = {

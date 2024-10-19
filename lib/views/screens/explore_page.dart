@@ -1,14 +1,14 @@
 import 'dart:ui';
-
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/models/helper/recipe_helper.dart';
-import 'package:hungry/views/screens/search_page.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/category_card.dart';
-import 'package:hungry/views/widgets/popular_recipe_card.dart';
-import 'package:hungry/views/widgets/recommendation_recipe_card.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/models/helper/recipe_helper.dart';
+import 'package:recipedz/views/screens/search_page.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/category_card.dart';
+import 'package:recipedz/views/widgets/popular_recipe_card.dart';
+import 'package:recipedz/views/widgets/recommendation_recipe_card.dart';
 
 class ExplorePage extends StatelessWidget {
   final Recipe popularRecipe = RecipeHelper.popularRecipe;
@@ -19,7 +19,7 @@ class ExplorePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primary,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 0,
         centerTitle: false,
         title: Text('Explore Recipe', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16)),

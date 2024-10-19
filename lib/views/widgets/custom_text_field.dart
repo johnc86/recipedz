@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/views/utils/AppColor.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
 
 class CustomTextField extends StatelessWidget {
   final String title;
@@ -10,12 +10,12 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsetsGeometry margin;
 
   CustomTextField({
-    @required this.title,
-    @required this.hint,
-    this.controller,
+    required this.title,
+    required this.hint,
+    required this.controller,
     this.obsecureText = false,
-    this.padding,
-    this.margin,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
   });
 
   @override

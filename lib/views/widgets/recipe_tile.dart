@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/views/screens/recipe_detail_page.dart';
-import 'package:hungry/views/utils/AppColor.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/views/screens/recipe_detail_page.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
 
 class RecipeTile extends StatelessWidget {
   final Recipe data;
-  RecipeTile({@required this.data});
+  RecipeTile({required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class RecipeTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.blueGrey,
-                image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover),
+                image: DecorationImage(image: AssetImage(data.photo ?? 'assets/images/default_photo.png'), fit: BoxFit.cover),
               ),
             ),
             // Recipe Info
@@ -62,7 +62,7 @@ class RecipeTile extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           child: Text(
-                            data.calories,
+                            data.calories ?? 'N/A',
                             style: TextStyle(fontSize: 12),
                           ),
                         ),

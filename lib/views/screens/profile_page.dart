@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/user_info_tile.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/user_info_tile.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: AppColor.primary,
         elevation: 0,
         centerTitle: true,
@@ -26,7 +27,7 @@ class ProfilePage extends StatelessWidget {
               'Edit',
               style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
             ),
-            style: TextButton.styleFrom(primary: Colors.white, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100))),
+            style: TextButton.styleFrom(foregroundColor: Colors.white, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100))),
           ),
         ],
       ),
@@ -81,11 +82,13 @@ class ProfilePage extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 16),
                   label: 'Email',
                   value: 'reinazahradummy@gmail.com',
+                  valueBackground: Colors.transparent,
                 ),
                 UserInfoTile(
                   margin: EdgeInsets.only(bottom: 16),
                   label: 'Full Name',
                   value: 'Reina Zahra Azizah',
+                  valueBackground: Colors.transparent,
                 ),
                 UserInfoTile(
                   margin: EdgeInsets.only(bottom: 16),
@@ -97,6 +100,7 @@ class ProfilePage extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 16),
                   label: 'Subscription Time',
                   value: 'Until 22 Oct 2021',
+                  valueBackground: Colors.transparent,
                 ),
               ],
             ),

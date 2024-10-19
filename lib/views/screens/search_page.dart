@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/models/helper/recipe_helper.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/modals/search_filter_modal.dart';
-import 'package:hungry/views/widgets/recipe_tile.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/models/helper/recipe_helper.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/modals/search_filter_modal.dart';
+import 'package:recipedz/views/widgets/recipe_tile.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -13,14 +14,14 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   TextEditingController searchInputController = TextEditingController();
-  final List<Recipe> searchResult = RecipeHelper.sarchResultRecipe;
+  final List<Recipe> searchResult = RecipeHelper.searchResultRecipe;
 
   @override
   Widget build(BuildContext context) {
     print(searchInputController.text.isEmpty);
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: AppColor.primary,
         elevation: 0,
         centerTitle: true,

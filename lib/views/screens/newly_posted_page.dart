@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/models/helper/recipe_helper.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/recipe_tile.dart';
+import 'package:flutter/services.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/models/helper/recipe_helper.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/recipe_tile.dart';
 
 class NewlyPostedPage extends StatelessWidget {
   final TextEditingController searchInputController = TextEditingController();
@@ -11,7 +12,7 @@ class NewlyPostedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: AppColor.primary,
         centerTitle: true,
         elevation: 0,

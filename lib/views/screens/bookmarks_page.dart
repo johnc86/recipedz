@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/models/helper/recipe_helper.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/modals/search_filter_modal.dart';
-import 'package:hungry/views/widgets/recipe_tile.dart';
+import 'package:flutter/services.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/models/helper/recipe_helper.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/modals/search_filter_modal.dart';
+import 'package:recipedz/views/widgets/recipe_tile.dart';
 
 class BookmarksPage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _BookmarksPageState extends State<BookmarksPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: AppColor.primary,
         centerTitle: false,
         elevation: 0,

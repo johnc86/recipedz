@@ -2,14 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/views/screens/recipe_detail_page.dart';
-import 'package:hungry/views/utils/AppColor.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/views/screens/recipe_detail_page.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
 
 class PopularRecipeCard extends StatelessWidget {
   final Recipe data;
 
-  PopularRecipeCard({@required this.data});
+  PopularRecipeCard({required this.data});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +22,13 @@ class PopularRecipeCard extends StatelessWidget {
         alignment: Alignment.bottomRight,
         padding: EdgeInsets.all(15),
         // Image
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: AssetImage(data.photo ?? 'assets/images/default_image.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +81,7 @@ class PopularRecipeCard extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.only(left: 5),
                               child: Text(
-                                data.calories,
+                                data.calories ?? 'N/A',
                                 style: TextStyle(color: Colors.white, fontSize: 10),
                               ),
                             ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hungry/views/utils/AppColor.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
 
 // ignore: must_be_immutable
 class CustomBottomNavigationBar extends StatefulWidget {
   int selectedIndex;
-  Function onItemTapped;
-  CustomBottomNavigationBar({@required this.selectedIndex, @required this.onItemTapped});
+  ValueChanged<int> onItemTapped;
+  CustomBottomNavigationBar({required this.selectedIndex, required this.onItemTapped});
 
   @override
   _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();

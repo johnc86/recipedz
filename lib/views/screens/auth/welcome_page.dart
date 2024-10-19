@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/modals/login_modal.dart';
-import 'package:hungry/views/widgets/modals/register_modal.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/modals/login_modal.dart';
+import 'package:recipedz/views/widgets/modals/register_modal.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -31,9 +31,9 @@ class WelcomePage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(bottom: 16),
-                        child: Text('Hungry?', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w700, fontSize: 32, color: Colors.white)),
+                        child: Text('Easy', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w700, fontSize: 32, color: Colors.white)),
                       ),
-                      Text("Help you when you're hungry", style: TextStyle(color: Colors.white)),
+                      Text("Plan your meals", style: TextStyle(color: Colors.white)),
                     ],
                   ),
                   Column(
@@ -59,7 +59,7 @@ class WelcomePage extends StatelessWidget {
                           },
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                            primary: AppColor.primarySoft,
+                            backgroundColor: AppColor.primarySoft,
                           ),
                         ),
                       ),
@@ -84,7 +84,7 @@ class WelcomePage extends StatelessWidget {
                           style: OutlinedButton.styleFrom(
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                             side: BorderSide(color: AppColor.secondary.withOpacity(0.5), width: 1),
-                            primary: Colors.white,
+                            foregroundColor: Colors.white,
                           ),
                         ),
                       ),
@@ -94,7 +94,7 @@ class WelcomePage extends StatelessWidget {
                         child: RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
-                            text: 'By joining Hungry, you agree to our ',
+                            text: 'By joining recipedz, you agree to our ',
                             style: TextStyle(color: Colors.white.withOpacity(0.6), height: 150 / 100),
                             children: [
                               TextSpan(

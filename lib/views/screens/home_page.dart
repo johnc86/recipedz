@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/models/core/recipe.dart';
-import 'package:hungry/models/helper/recipe_helper.dart';
-import 'package:hungry/views/screens/delicious_today_page.dart';
-import 'package:hungry/views/screens/newly_posted_page.dart';
-import 'package:hungry/views/screens/profile_page.dart';
-import 'package:hungry/views/screens/search_page.dart';
-import 'package:hungry/views/utils/AppColor.dart';
-import 'package:hungry/views/widgets/custom_app_bar.dart';
-import 'package:hungry/views/widgets/dummy_search_bar.dart';
-import 'package:hungry/views/widgets/featured_recipe_card.dart';
-import 'package:hungry/views/widgets/recipe_tile.dart';
-import 'package:hungry/views/widgets/recommendation_recipe_card.dart';
+import 'package:recipedz/models/core/recipe.dart';
+import 'package:recipedz/models/helper/recipe_helper.dart';
+import 'package:recipedz/views/screens/delicious_today_page.dart';
+import 'package:recipedz/views/screens/newly_posted_page.dart';
+import 'package:recipedz/views/screens/profile_page.dart';
+import 'package:recipedz/views/screens/search_page.dart';
+import 'package:recipedz/views/utils/AppColor.dart';
+import 'package:recipedz/views/widgets/custom_app_bar.dart';
+import 'package:recipedz/views/widgets/dummy_search_bar.dart';
+import 'package:recipedz/views/widgets/featured_recipe_card.dart';
+import 'package:recipedz/views/widgets/recipe_tile.dart';
+import 'package:recipedz/views/widgets/recommendation_recipe_card.dart';
 
 class HomePage extends StatelessWidget {
   final List<Recipe> featuredRecipe = RecipeHelper.featuredRecipe;
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: Text('Hungry?', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w700)),
+        title: Text('recipedz?', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w700)),
         showProfilePhoto: true,
         profilePhoto: AssetImage('assets/images/pp.png'),
         profilePhotoOnPressed: () {
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
                               Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeliciousTodayPage()));
                             },
                             child: Text('see all'),
-                            style: TextButton.styleFrom(primary: Colors.white, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
+                            style: TextButton.styleFrom(foregroundColor: Colors.white, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
                           ),
                         ],
                       ),
@@ -152,14 +152,14 @@ class HomePage extends StatelessWidget {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewlyPostedPage()));
                       },
                       child: Text('see all'),
-                      style: TextButton.styleFrom(primary: Colors.black, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
+                      style: TextButton.styleFrom(foregroundColor: Colors.black, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
                     ),
                   ],
                 ),
                 // Content
                 ListView.separated(
                   shrinkWrap: true,
-                  itemCount: 3 ?? newlyPostedRecipe.length,
+                  itemCount: 3,
                   physics: NeverScrollableScrollPhysics(),
                   separatorBuilder: (context, index) {
                     return SizedBox(height: 16);
